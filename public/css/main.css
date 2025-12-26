@@ -1,0 +1,201 @@
+:root {
+    --page-width: 1200px;
+
+    --color-accent: #d32722;
+    --color-surface: #ffffff;
+    --color-surface-alt: #f8fafc;
+    --color-text: #0f172a;
+    --color-text-muted: #475569;
+    --color-border: #e5e7eb;
+
+    --space-sm: 0.75rem;
+    --space-md: 1.5rem;
+    --space-lg: 3rem;
+
+    --text-sm: 0.75rem;
+    --text-md: 1rem;
+    --text-lg: 1.5rem;
+    --text-subheader: 2rem;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    color: var(--color-text);
+    background: var(--color-surface);
+    line-height: 1.6;
+}
+
+a {
+    color: var(--color-text-muted);
+}
+
+/* ===== Layout ===== */
+
+.container {
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+section {
+    padding: var(--space-lg) 0;
+}
+
+.accent-section {
+    background: var(--color-surface-alt);
+}
+
+/* ===== Header ===== */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: var(--color-surface-alt);
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-sm) var(--space-md);
+}
+
+.brand img {
+    height: 44px;
+}
+
+.contact-button {
+    background: var(--color-accent);
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.75rem;
+    text-decoration: none;
+}
+
+/* ===== Hero ===== */
+
+.hero-section {
+    padding-top: var(--space-lg);
+}
+
+.hero-grid {
+    display: grid;
+    gap: var(--space-lg);
+}
+
+.hero {
+    max-width: calc(var(--page-width) / 2);
+}
+
+.hero:nth-child(even) {
+    justify-self: right;
+}
+
+.hero h1 {
+    margin-top: 0;
+}
+
+.hero p {
+    font-size: var(--text-lg);
+}
+
+/* ===== Sections ===== */
+
+.section-header {
+    margin-bottom: var(--space-md);
+}
+
+.grid {
+    display: grid;
+    gap: var(--space-md);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--text-md);
+}
+
+/* ===== Timeline Grid ===== */
+
+.timeline {
+    position: relative;
+    width: 100%;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: var(--color-accent);
+    top: 0;
+    left: 50%;
+    margin-left: -1px;
+    z-index: -1;
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    margin-bottom: 3rem;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    top: 1.75rem; /* aligns with card header */
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    border: 3px solid var(--color-surface);
+    z-index: 0;
+}
+
+.timeline-card {
+    background: var(--color-surface);
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+}
+
+/* ===== Alternating placement ===== */
+
+.timeline-item:nth-child(odd)::before {
+    right: -7px;
+}
+
+.timeline-item:nth-child(even)::before {
+    left: -7px;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    padding-right: var(--space-md);
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    padding-left: var(--space-md);
+}
+
+/* ===== Footer ===== */
+
+.site-footer {
+    background: var(--color-surface-alt);
+    padding: var(--space-md) 0;
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+}
